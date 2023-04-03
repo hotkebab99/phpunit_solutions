@@ -1,9 +1,5 @@
 <?php
 
-define("DIESEL", 0);
-define("ESSENCE", 1);
-define("ELECTRIQUE", 2);
-
 class Voiture
 {
     public $marque;
@@ -41,9 +37,9 @@ class Voiture
 
     private function initKmAvantRevision() {
         switch($this->energie) {
-            case DIESEL: $this->kilometrageAvantRevision = 20000; break;
-            case ESSENCE: $this->kilometrageAvantRevision = 15000; break;
-            case ELECTRIQUE: $this->kilometrageAvantRevision = 30000; break;
+            case Energie::DIESEL: $this->kilometrageAvantRevision = 20000; break;
+            case Energie::ESSENCE: $this->kilometrageAvantRevision = 15000; break;
+            case Energie::ELECTRIQUE: $this->kilometrageAvantRevision = 30000; break;
         }
     }
 }

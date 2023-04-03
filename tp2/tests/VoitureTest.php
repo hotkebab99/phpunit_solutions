@@ -1,6 +1,8 @@
 <?php
 
 use \PHPUnit\Framework\TestCase;
+use \PHPUnit\Framework\Attributes\DataProvider;
+
 
 class VoitureTest extends TestCase
 {
@@ -14,9 +16,7 @@ class VoitureTest extends TestCase
         $this->assertEquals("Volkswagen Golf - 24000 km - 20000 km", $this->voiture->getDetails());
     }
 
-    /**
-     * @dataProvider etapeProvider
-     */
+    #[DataProvider('etapeProvider')]
     public function testEtapeAugmenteKilometrageEtDiminueKilometrageAvantRevision($kilometrage, $kilometrage_total, $kilometrage_avant_revision) {
         $this->voiture->ajouterEtape($kilometrage);
 
@@ -50,7 +50,7 @@ class VoitureTest extends TestCase
         $this->assertEquals(20000, $this->voiture->kilometrageAvantRevision);
     }
 
-    public function etapeProvider() {
+    public static function etapeProvider() {
         return [
             [100, 24100, 19900],
             [0, 24000, 20000],

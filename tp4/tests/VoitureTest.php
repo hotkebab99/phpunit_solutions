@@ -7,7 +7,7 @@ class VoitureTest extends TestCase
     public $voiture;
 
     protected function setUp(): void {
-        $this->voiture = new Voiture('Volkswagen', 'Golf', 24000, DIESEL);
+        $this->voiture = new Voiture('Volkswagen', 'Golf', 24000, Energie::DIESEL);
     }
 
     public function testRetourDetailsEstCorrect() {
